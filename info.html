@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to the Game</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Josefin+Slab"
+    />
+    <link rel="stylesheet" href="info.css" />
+  </head>
+  <body>
+    <div class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="info.html">
+          <i class="bi bi-joystick"></i>YANNES.C
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <i class="bi bi-list"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="#home">Home</a>
+            <a class="nav-link" href="#about-me">About Me</a>
+            <a class="nav-link" href="#start-game">Game</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="welcome" id="home">
+      <img
+        src="sprites_heart_life.png"
+        alt="pixel img"
+        width="700"/>
+      <span>Welcome to my First Project!</span>
+    </div>
+    <div id="about-me">
+      <div class="intro">
+        <div class="text">
+          <p class="name">Hello every one!<br>I'm Yannes</p>
+          <p class="details">I have never imagine that some day I will quit my stable job and take a course that I totally unfamiliar with.<br>Some of you may have the same purpose (<i class="bi bi-currency-dollar"></i>) as me to take this course, I hope we can learn as much as we want and enjoy the time we spend together!<br>Let's work hard for programming!!!</p>
+        </div>
+        <div class="pic"><img id="pgmer" src="f0f0d932d6e39c7af5aa305cbd8da735.gif"></div>
+      </div>
+    </div>
+    <div class="about-me-2">
+      <div class="me">More about me</div>
+      <div class="me-details">
+        <div class="job">
+          <h2>My job experience</h2>
+          <ul>
+            <li>Convention & Exhibition industry</li>
+            <li>Beauty Marketing</li>
+            <li>Government servant</li>
+          </ul>
+        </div>
+        <div class="hobby">
+          <h2>My Hobbies</h2>
+          <ul>
+            <li>Traveling</li>
+            <li>Movies</li>
+            <li>Musics</li>
+            <li>Reading</li>
+            <li>Boardgames</li>
+          </ul>
+        </div>
+      </div> 
+      <div class="contact">
+        Feel free to contact me in these ways
+        <br><i class="bi bi-envelope-at" href="mailto:yannes_chow_0828@hotmail.com"></i>
+        <i class="bi bi-whatsapp" href="whatsapp://send?abid=+85251906988&text=Hi%2C%20Yannes!"></i>
+      </div>
+    </div>
+    <div id="start-game">
+      <div class="game-name">Conway's Game of Life</div>
+      <div class="game-info">
+        The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970. It is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input.<br>One interacts with the Game of Life by creating an initial configuration and observing how it evolves. It is Turing complete and can simulate a universal constructor or any other Turing machine.
+      </div>
+      <div  onclick="rules()" class="popup">Rules
+        <span class="popuptext" id="myPopup">
+          The universe of the Game of Life is an infinite, two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, live or dead.<br><br>
+          Every cell interacts with its eight neighbors, which are the cells that are horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur:<br><br>
+          1. Any live cell with two or three live neighbors survives.<br><br>
+          2. Any dead cell with three live neighbors becomes a live cell.<br><br>
+          3. All other live cells die in the next generation. Similarly, all other dead cells stay dead.
+        </span>
+      </div>
+      <button class="starto" onclick="window.location.href='gol.html';">START
+      </button>
+    </div>
+    <div class="footer">
+          <div class=left>
+            <i class="bi bi-joystick"></i>YANNES.C
+          </div>
+          <div class="right">
+            Copyright <i class="bi bi-c-circle"></i> 2023 YANNES.CHOW
+          </div>
+    </div>
+   
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function rules() {
+        let popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
+      }
+    </script>
+  </body>
+</html>

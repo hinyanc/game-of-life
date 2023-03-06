@@ -1,0 +1,170 @@
+html, body {
+  height: 100%;
+  margin: 0
+}
+
+body{
+    background-image: url(peakpx.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.whole {
+  max-width: 2275px;
+  height: 100vh;
+  padding: 0 50px;
+  /* position: relative; */
+  padding-top: 20px;
+  margin: 0 auto;
+  /* background-image: url(peakpx.jpg); */
+  
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; 
+  display: flex;
+  flex-direction: column;
+  animation: expand .8s ease forwards;
+  transition: all .8s ease;
+}
+
+.navbar {
+  position: sticky;
+  top: 20px;
+  /* display: flex; */
+}
+
+.navbar-nav {
+  color: rgb(204, 167, 239);
+  font-family: "Josefin Slab";
+  font-size: 25px;
+}
+
+.navbar-brand {
+  color: rgb(204, 167, 239);
+  font-family: "Josefin Slab";
+  font-size: 28px;
+}
+
+.navbar-brand:hover {
+  color: rgb(190, 136, 240);
+}
+
+.navbar-nav:hover {
+  color: rgb(190, 136, 240);
+}
+
+.navbar-brand:focus {
+  color: rgb(204, 167, 239);
+}
+
+.navbar-toggler {
+  border-color: rgb(204, 167, 239);
+}
+
+.bi-list {
+  color: rgb(204, 167, 239);
+  font-size: 30px;
+}
+
+.nav-link {
+  color: rgb(204, 167, 239) !important;
+  font-family: "Josefin Slab";
+}
+
+.nav-link:hover {
+  color: rgb(190, 136, 240);
+}
+
+.bi-joystick {
+  padding-right: 10px;
+  color: rgb(204, 167, 239);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.welcome {
+  background-size: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: "Press Start 2P";
+  font-size: 80px;
+  text-align: center;
+  color: rgb(204, 167, 239);
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+  text-shadow: 3px 3px 3px #8a2ba2, 4px 4px 3px #8a2ba2;
+}
+
+.welcome img {
+  padding-bottom: 30px;
+
+}
+
+#about-me {
+  height: 100vh;
+  width: 100vw;
+}
+
+#start {
+  height: 100vh;
+}
+
+.starto {
+  background: rgb(204, 167, 239);
+  color: #8a2ba2;
+  display: inline-block;
+  padding: 25px 55px;
+  font-size: 40px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #6d0387;
+  font-family: "Press Start 2P";
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.starto:hover {
+  background: rgb(190, 136, 240);
+}
+
+.starto:active {
+  background: rgb(190, 136, 240);
+  box-shadow: 0 5px #540e66;
+  transform: translateY(4px);
+}
+
+.intro {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.name {
+  font-family: "Press Start 2P";
+  color: #8a2ba2;
+  font-size: 30px;
+  text-shadow: 2px 2px 2px rgb(204, 167, 239), 3px 3px 2px rgb(204, 167, 239);
+}
+
+.details {
+  font-family: "Josefin Slab";
+  color: #8a2ba2;
+  font-size: 25px;
+  text-shadow: 1px 1px 1px rgb(204, 167, 239), 2px 2px 3px rgb(204, 167, 239);
+}

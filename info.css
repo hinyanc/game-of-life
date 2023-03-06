@@ -1,0 +1,293 @@
+body {
+  background-image: url(peakpx.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.welcome, #about-me, .about-me-2, #start-game {
+  padding: 0 50px;
+  margin: 0 20px;
+}
+
+.navbar {
+  width: 100vw;
+  position: fixed;
+  overflow: hidden;
+  background-image: url(peakpx.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 10;
+  /* display: flex; */
+}
+
+.navbar-nav {
+  color: rgb(204, 167, 239);
+  font-family: "Josefin Slab";
+  font-size: 25px;
+}
+
+.navbar-brand {
+  color: rgb(204, 167, 239);
+  font-family: "Josefin Slab";
+  font-size: 28px;
+  text-shadow: 1px 1px 1px #8a2ba2, 2px 2px 3px #8a2ba2;
+}
+
+.navbar-brand:hover {
+  color: rgb(190, 136, 240);
+}
+
+.navbar-nav:hover {
+  color: rgb(190, 136, 240);
+}
+
+.navbar-brand:focus {
+  color: rgb(204, 167, 239);
+}
+
+.navbar-toggler {
+  border-color: rgb(204, 167, 239);
+}
+
+.bi-list {
+  color: rgb(204, 167, 239);
+  font-size: 30px;
+}
+
+.nav-link {
+  color: rgb(204, 167, 239) !important;
+  font-family: "Josefin Slab";
+  text-shadow: 1px 1px 1px #8a2ba2, 2px 2px 3px #8a2ba2;
+}
+
+.nav-link:hover {
+  color: rgb(190, 136, 240) !important;
+}
+
+.bi-joystick {
+  padding-right: 10px;
+  color: rgb(204, 167, 239);
+}
+
+.welcome {
+  background-image: url(peakpx.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  font-family: "Press Start 2P";
+  font-size: 70px;
+  text-align: center;
+  color: rgb(204, 167, 239);
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-shadow: 3px 3px 3px #8a2ba2, 4px 4px 3px #8a2ba2;
+}
+
+.welcome img {
+  padding-bottom: 30px;
+
+}
+
+#about-me {
+  background-image: url(night.gif);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#start-game {
+  background-image: url(Intro_42_2.gif);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.starto {
+  background: rgb(204, 167, 239);
+  color: #8a2ba2;
+  display: inline-block;
+  padding: 25px 55px;
+  font-size: 40px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #6d0387;
+  font-family: "Press Start 2P";
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.starto:hover, .popup:hover {
+  background: rgb(190, 136, 240);
+}
+
+.starto:active, .popup:active {
+  background: rgb(190, 136, 240);
+  box-shadow: 0 5px #540e66;
+  transform: translateY(4px);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.name, .me, .game-name {
+  padding-top: 50px;
+  padding-bottom: 40px;
+  font-family: "Press Start 2P";
+  color: #b230d3;
+  font-size: 40px;
+  text-align: center;
+  text-shadow: 2px 2px 2px rgb(204, 167, 239), 3px 3px 2px rgb(204, 167, 239);
+}
+
+.details, .me-details, .contact, .game-info {
+  padding-bottom: 20px;
+  font-family: "Josefin Slab";
+  color: rgb(204, 167, 239);
+  font-size: 23px;
+  text-shadow: 1px 1px 1px #8a2ba2, 2px 2px 3px #8a2ba2;
+}
+
+#pgmer {
+  width: 400px;
+  padding: 50px;
+}
+
+.about-me-2 {
+  background-image: url(night-cat.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.me-details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+}
+
+.footer {
+  width: 100vw;
+  position: fixed;
+  padding: 10px;
+  bottom: 0;
+  background-image: url(peakpx.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left, .right {
+  font-family: "Josefin Slab";
+  color: rgb(204, 167, 239);
+  font-size: 15px;
+  text-shadow: 1px 1px 1px #8a2ba2, 2px 2px 3px #8a2ba2;
+}
+
+
+.bi-envelope-at, .bi-whatsapp {
+  cursor: pointer;
+  padding-left: 15px;
+}
+
+.bi-envelope-at:hover, .bi-whatsapp:hover {
+  color: rgb(190, 136, 240);
+}
+
+.popup {
+  background: rgb(204, 167, 239);
+  color: #8a2ba2;
+  border-radius: 15px;
+  box-shadow: 0 9px #6d0387;
+  font-family: "Press Start 2P";
+  align-items: center;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 15px;
+  margin-bottom: 40px;
+}
+
+/* The actual popup */
+.popuptext {
+  visibility: hidden;
+  width: 300px;
+  background-color: rgba(204, 167, 239, 0.9);
+  color: #6d0387;
+  text-shadow: 1px 1px 1px rgb(204, 167, 239), 2px 2px 3px rgb(204, 167, 239);
+  font-family: "Josefin Slab";
+  text-align: left;
+  font-size: 20px;
+  border-radius: 6px;
+  padding: 15px;
+  position: absolute;
+  z-index: 1;
+  bottom: -500%;
+  left: -80%;
+  margin-left: -238px;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
