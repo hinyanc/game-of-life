@@ -15,6 +15,8 @@ let dieOfLoneliness;
 let dieOfOverpopulation;
 let newLife;
 
+let randomColFlag = false;
+
 function setup() {
   /* Set the canvas to be under the element #canvas*/
   const canvas = createCanvas(windowWidth * 0.9, windowHeight / 2);
@@ -101,7 +103,14 @@ function draw() {
     for (let j = 0; j < rows; j++) {
       if (currentBoard[i][j] > 0) {
         if (currentBoard[i][j] == 1) {
-          fill(colorPicker.color());
+          if (randomColFlag == true) {
+            let r = Math.floor(Math.random() * 256);
+            let g = Math.floor(Math.random() * 256);
+            let b = Math.floor(Math.random() * 256);
+            fill(r,g,b)
+          } else if (randomColFlag == false) {
+            fill(colorPicker.color());
+          }
         }
       } else {
         fill(204, 167, 239); // grid w/o life color
@@ -209,6 +218,18 @@ randomPlay.addEventListener("click", () => {
   }
   loop();
 });
+
+// random color button
+let randomColor = document.getElementById("randomColor");
+randomColor.addEventListener("click", () => {
+  if (randomColFlag ==  false) {
+    randomColFlag = true;
+    console.log("change to true");
+  } else if (randomColFlag == true) {
+    randomColFlag = false
+    console.log("change to false");
+  }
+})
 
 // restart button
 let reset = document.getElementById("restart");
