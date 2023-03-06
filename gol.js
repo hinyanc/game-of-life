@@ -1,4 +1,4 @@
-const unitLength = 35; // grid size
+const unitLength = 20; // grid size
 const boxColor = "#8a2ba2"; // grid w/ life color
 const strokeColor = 255; //
 let columns; /* To be determined by window width */
@@ -104,9 +104,11 @@ function addFeatures() {
 }
 
 let counter = 0;
+let n = 0;
 function draw() {
   counter = 0;
-  let factor = Math.sin(counter);
+  n += 0.2;
+  let factor = Math.sin(n);
   dieOfLoneliness = document.getElementsByClassName("lonely").value;
   dieOfOverpopulation = document.getElementsByClassName("overp").value;
   newLife = document.getElementsByClassName("rp").value;
@@ -137,12 +139,12 @@ function draw() {
         fill(204, 167, 239); // grid w/o life color
       }
 
-      stroke(strokeColor);
+      stroke(204, 167, 239);
       circle(
         i * unitLength,
         j * unitLength,
-        unitLength * factor,
-        Math.max(unitLength * factor, unitLength * 0.5)
+        Math.max(unitLength / 2 + 10 * factor, 10)
+        // Math.max(unitLength * factor, unitLength * 0.5)
       );
     }
   }
