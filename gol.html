@@ -27,37 +27,37 @@
     <link rel="stylesheet" href="gol.css" />
   </head>
   <body>
-      <div class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="info.html"
-            ><i class="bi bi-joystick"></i>YANNES.C</a
-          >
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <i class="bi bi-list"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="info.html"
-                >Home</a
-              >
-              <a class="nav-link" href="info.html#about-me">About Me</a>
-              <a class="nav-link" href="gol.html">Game</a>
-            </div>
+    <div class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <div id="counter" style="color: white">0</div>
+        <a class="navbar-brand" href="info.html"
+          ><i class="bi bi-joystick"></i>YANNES.C</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="info.html"
+              >Home</a
+            >
+            <a class="nav-link" href="info.html#about-me">About Me</a>
+            <a class="nav-link" href="gol.html">Game</a>
           </div>
         </div>
       </div>
-      <div class="main">
-        <div class="game-info">
-        </div>
-        <div class="game-set">
+    </div>
+    <div class="main">
+      <div class="game-info"></div>
+      <div class="game-set">
         <div class="slider-gp" id="slider-speed">
           <span class="speed">-- Speed Control --</span>
         </div>
@@ -78,12 +78,10 @@
         <div class="color-gp">
           <span class="speed">-- Select Color --</span>
         </div>
-        </div>
-        <div class="select-gp">
+      </div>
+      <div class="select-gp">
         <div class="selection">
-          <label for="lonely" class="speed"
-          >Neighbor &lt; this = DIE</label
-        >
+          <label for="lonely" class="speed">Neighbor &lt; this = DIE</label>
           <select class="selector" id="lonely">
             <option value="2">2</option>
             <option value="1">1</option>
@@ -92,9 +90,7 @@
           </select>
         </div>
         <div class="selection">
-          <label for="overp" class="speed"
-          >Neighbor &gt; this = DIE</label
-        >
+          <label for="overp" class="speed">Neighbor &gt; this = DIE</label>
           <select class="selector" id="overp">
             <option value="3">3</option>
             <option value="1">1</option>
@@ -103,9 +99,7 @@
           </select>
         </div>
         <div class="selection">
-          <label for="rp" class="speed"
-          >Neighbor = this = REBORN</label
-        >
+          <label for="rp" class="speed">Neighbor = this = REBORN</label>
           <select class="selector" id="rp">
             <option value="3">3</option>
             <option value="1">1</option>
@@ -113,15 +107,21 @@
             <option value="4">4</option>
           </select>
         </div>
+        <div class="selection">
+          <label for="pattern" class="speed">Pattern</label>
+          <select class="selector" id="pattern">
+            <option value="none" selected>None</option>
+            <option value="1">pattern 1</option>
+            <option value="2">pattern 2</option>
+          </select>
         </div>
-        <div class="canvas-container">
-        <div id="canvas"></div>
-        </div>
+      </div>
+      <div class="canvas-container">
+        <div id="canvas" style="transition-duration: 0.5s;"></div>
+      </div>
     </div>
     <div class="footer">
-      <div class=left>
-        <i class="bi bi-joystick"></i>YANNES.C
-      </div>
+      <div class="left"><i class="bi bi-joystick"></i>YANNES.C</div>
       <div class="right">
         Copyright <i class="bi bi-c-circle"></i> 2023 YANNES.CHOW
       </div>

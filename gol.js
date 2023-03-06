@@ -1,4 +1,4 @@
-const unitLength = 15; // grid size
+const unitLength = 35; // grid size
 const boxColor = "#8a2ba2"; // grid w/ life color
 const strokeColor = 255; //
 let columns; /* To be determined by window width */
@@ -39,7 +39,9 @@ function setup() {
 }
 
 function windowResized() {
-  const canvas = createCanvas(windowWidth * 0.9, windowHeight / 2);
+  // -----pending-----
+
+  canvas = createCanvas(windowWidth * 0.9, windowHeight / 2);
   canvas.parent(document.querySelector("#canvas"));
 
   /*Calculate the number of columns and rows */
@@ -47,14 +49,13 @@ function windowResized() {
   rows = floor(height / unitLength);
 
   /*Making both currentBoard and nextBoard 2-dimensional matrix that has (columns * rows) boxes. */
-  currentBoard = [];
-  nextBoard = [];
+  newCurrentBoard = [...currentBoard];
+  newNextBoard = [...nextBoard];
+  console.log(newCurrentBoard, "||", newNextBoard);
   for (let i = 0; i < columns; i++) {
-    currentBoard[i] = [];
-    nextBoard[i] = [];
+    currentBoard[i] = newCurrentBoard[i] ?? Array(rows).fill(0);
+    nextBoard[i] = newNextBoard[i] ?? Array(rows).fill(0);
   }
-
-  init();
 }
 
 function initWithFeatures() {
@@ -70,8 +71,19 @@ function initWithFeatures() {
 function init() {
   for (let i = 0; i < columns; i++) {
     for (let j = 0; j < rows; j++) {
+      // default version
       currentBoard[i][j] = 0;
       nextBoard[i][j] = 0;
+
+      // object version
+      // currentBoard[i][j] = {
+      //   color: "#000000",
+      //   life: 0,
+      // };
+      // nextBoard[i][j] = {
+      //   color: "#000000",
+      //   life: 0,
+      // };
     }
   }
 }
@@ -91,7 +103,10 @@ function addFeatures() {
   colorPicker.parent(document.querySelector(".color-gp"));
 }
 
+let counter = 0;
 function draw() {
+  counter = 0;
+  let factor = Math.sin(counter);
   dieOfLoneliness = document.getElementsByClassName("lonely").value;
   dieOfOverpopulation = document.getElementsByClassName("overp").value;
   newLife = document.getElementsByClassName("rp").value;
@@ -107,17 +122,28 @@ function draw() {
             let r = Math.floor(Math.random() * 256);
             let g = Math.floor(Math.random() * 256);
             let b = Math.floor(Math.random() * 256);
-            fill(r,g,b)
+            fill(r, g, b);
+
+            // fill(currentBoard[i][j].color);
           } else if (randomColFlag == false) {
             fill(colorPicker.color());
           }
+          // stable life
+          if (currentBoard[i][j] == nextBoard[i][j]) fill([0, 0, 0]);
+          counter += 1;
+          document.querySelector("#counter").innerHTML = counter;
         }
       } else {
         fill(204, 167, 239); // grid w/o life color
       }
 
       stroke(strokeColor);
-      rect(i * unitLength, j * unitLength, unitLength, unitLength);
+      circle(
+        i * unitLength,
+        j * unitLength,
+        unitLength * factor,
+        Math.max(unitLength * factor, unitLength * 0.5)
+      );
     }
   }
 }
@@ -136,7 +162,8 @@ function generate() {
           }
           // The modulo operator is crucial for wrapping on the edge
           neighbors +=
-            currentBoard[(x + i + columns) % columns][(y + j + rows) % rows];
+            currentBoard[(x + i + columns) % columns][(y + j + rows) % rows] ??
+            0;
         }
       }
 
@@ -177,15 +204,28 @@ function mouseDragged() {
   /**
    * If the mouse coordinate is outside the board
    */
-  if (mouseX > unitLength * columns || mouseY > unitLength * rows) {
+  if (
+    mouseX > unitLength * columns ||
+    mouseY > unitLength * rows ||
+    mouseX < 0 ||
+    mouseY < 0
+  ) {
     return;
   }
-  const x = Math.floor(mouseX / unitLength);
-  const y = Math.floor(mouseY / unitLength);
+
+  const x = Math.max(Math.floor(mouseX / unitLength), 0);
+  const y = Math.max(Math.floor(mouseY / unitLength), 0);
+
+  // for debug. delete after use.
+  // console.log(`mouseX: ${mouseX}; mouseY: ${mouseY}`);
+  // console.log(`x: ${x}, y: ${y}`);
+  // console.log("mouseDragged - currentBorad:");
+  // console.log(currentBoard);
+
   currentBoard[x][y] = 1;
   fill(colorPicker.color());
   stroke(strokeColor);
-  rect(x * unitLength, y * unitLength, unitLength, unitLength);
+  circle(x * unitLength, y * unitLength, unitLength, unitLength);
 }
 
 // choose pattern button
@@ -222,14 +262,14 @@ randomPlay.addEventListener("click", () => {
 // random color button
 let randomColor = document.getElementById("randomColor");
 randomColor.addEventListener("click", () => {
-  if (randomColFlag ==  false) {
+  if (randomColFlag == false) {
     randomColFlag = true;
     console.log("change to true");
   } else if (randomColFlag == true) {
-    randomColFlag = false
+    randomColFlag = false;
     console.log("change to false");
   }
-})
+});
 
 // restart button
 let reset = document.getElementById("restart");
@@ -245,7 +285,13 @@ reset.addEventListener("click", () => {
  */
 function mousePressed() {
   noLoop();
-  mouseDragged();
+  const pattern = document.querySelector("#pattern").value;
+  if (pattern !== "none") {
+    console.log("selected pattern: ", pattern);
+    patternStamp();
+  } else {
+    mouseDragged();
+  }
 }
 
 /**
@@ -257,3 +303,59 @@ function mouseReleased() {
     loop();
   }
 }
+
+// print pattern
+function patternStamp() {
+  /**
+   * If the mouse coordinate is outside the board
+   */
+  if (
+    mouseX > unitLength * columns ||
+    mouseY > unitLength * rows ||
+    mouseX < 0 ||
+    mouseY < 0
+  ) {
+    return;
+  }
+
+  const x = Math.max(Math.floor(mouseX / unitLength), 0);
+  const y = Math.max(Math.floor(mouseY / unitLength), 0);
+
+  const pattern = document.querySelector("#pattern").value;
+  if (pattern == "1") {
+    const specifiedPattern = patterns[Number(pattern)];
+    console.log("spc. pattern: ", specifiedPattern);
+    for (let i = 0; i < specifiedPattern.length; i++) {
+      for (let j = 0; j < specifiedPattern[i].length; j++) {
+        currentBoard[x + j][y + i] = specifiedPattern[i][j];
+        console.log(currentBoard[x + j][y + i]);
+        if (currentBoard[x + j][y + i]) fillColor(x + j, y + i);
+      }
+    }
+  } else if (pattern == "2") {
+    console.log("pattern 2");
+  }
+  // currentBoard[x][y] = 1;
+  // fill(colorPicker.color());
+  // stroke(strokeColor);
+  // circle(x * unitLength, y * unitLength, unitLength, unitLength);
+}
+
+function fillColor(x, y) {
+  fill(colorPicker.color());
+  stroke(strokeColor);
+  circle(x * unitLength, y * unitLength, unitLength, unitLength);
+}
+
+const patterns = {
+  1: [
+    [1, 0, 0, 1],
+    [0, 1, 0, 1],
+    [1, 0, 0, 1],
+  ],
+  2: [
+    [1, 1, 1],
+    [1, 1, 0],
+    [1, 0, 0],
+  ],
+};
